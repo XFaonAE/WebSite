@@ -1,43 +1,52 @@
 <template>
 	<div class="root">
-		<nav>
-			<router-link to="/">Home</router-link>
-			<router-link to="/about">About</router-link>
-		</nav>
+        <theme-controller ref="themeController" />
+        <title-bar title="Axeri" />
 
-		<hr />
+        <nav-bar :links="[
+            {
+                href: '/',
+                label: 'Home'
+            },
+            {
+                href: '/about',
+                label: 'About'
+            }
+        ]" />
 
-		<router-view />
+		<div class="page">
+            <router-view />
+        </div>
 	</div>
 </template>
 
-<style lang="less">
-* {
-	box-sizing: border-box;
-	color: #000;
-	background: #fff;
-	font-family: sans-serif;
-	font-weight: lighter;
-	font-size: 12px;
-	transition: 100ms;
+<script lang="ts">
+import { Vue } from "vue-class-component";
+import { Ref } from "vue-property-decorator";
+
+export default class Main extends Vue {
+    @Ref("themeController") theme!: any;
+
+    public mounted() {
+        this.theme.loadTheme("Dark");
+    }
 }
+</script>
 
-nav {
-	a {
-		padding: 6px 10px;
+<style lang="less" scoped>
+@import "./components/Config";
 
-		&:hover {
-			background: rgba(0, 0, 0, 0.05);
-		}
-	}
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
 
-	a.router-link-active {
-		color: #74bddd;
-	}
-}
-
-hr {
-	border: none;
-	border-bottom: 1px solid #f1f1f1;
+    .page {
+        height: calc(100% - 40px);
+        display: flex;
+        width: 100vw;
+        overflow: auto;
+    }
 }
 </style>
