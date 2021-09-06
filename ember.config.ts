@@ -1,3 +1,3 @@
 export default {
-    type: "gui"
+	type: "gui"
 }
