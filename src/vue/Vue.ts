@@ -3,6 +3,7 @@ import Main from "./Main.vue";
 import router from "./plugins/Router";
 import FluxUi from "@axeridev/flux-ui";
 import NavBar from "./components/NavBar.vue";
+import Footer from "./components/Footer.vue";
 
 const app = createApp(Main);
 
@@ -10,13 +11,14 @@ app.use(router);
 app.use(FluxUi.create());
 
 const registerComponents = (components: { [ index: string]: any }) => {
-    for (const component in components) {
-        app.component(component, components[component]);
-    }
+	for (const component in components) {
+		app.component(component, components[component]);
+	}
 }
 
 registerComponents({
-    NavBar
+	NavBar,
+	Footer
 });
 
 app.mount("#app");
