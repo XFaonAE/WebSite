@@ -3,7 +3,7 @@
         <theme-controller ref="themeController" />
         <title-bar title="Axeri" />
 
-        <nav-bar :links="[
+        <nav-bar logo="Axeri" :links="[
             {
                 href: '/',
                 label: 'Home'
@@ -43,7 +43,7 @@ export default class Main extends Vue {
     height: 100vh;
 
     .page {
-        height: calc(100% - 40px);
+        max-height: calc(100% - 40px);
         display: flex;
         width: 100vw;
         overflow: auto;
