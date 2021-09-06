@@ -1,8 +1,6 @@
 <template>
     <div class="root">
-        <div class="logo">
-            {{ logo }}
-        </div>
+        <router-link to="/" class="logo">{{ logo }}</router-link>
 
         <div class="links">
             <router-link :to="link.href" v-for="link in links">{{ link.label }}</router-link>
@@ -31,13 +29,34 @@ export default class NavBar extends Vue {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 10px;
     flex-direction: row;
 
     .logo {
         color: @accent;
         font-family: @mainFont;
         font-size: 13px;
+        margin-left: -5px;
+        text-decoration: none;
+        transition: 100ms;
+        padding: 5px;
+
+        &:after {
+            content: "";
+            display: flex;
+            width: 100%;
+            border-radius: 3px;
+            height: 1px;
+            transition: 100ms;
+        }
+
+        &:hover {
+            color: @textDim;
+
+            &:after {
+                background: @accent;
+            }
+        }
     }
 
     .links {
