@@ -4,16 +4,8 @@
             <div class="left"></div>
 
             <div class="right">
-                <button>
-                    <icon icon="add" size="13" />
-                </button>
-
-                <button>
-                    <icon icon="add" size="13" />
-                </button>
-
-                <button>
-                    <icon icon="add" size="13" />
+                <button v-for="button in buttons" @click="button.click()">
+                    <icon :icon="button.icon" size="13" />
                 </button>
             </div>
         </div>
@@ -45,6 +37,15 @@
 		</div>
 	</div>
 </template>
+
+<script lang="ts">
+import { Vue } from "vue-class-component";
+import { Prop } from "vue-property-decorator";
+
+export default class Footer extends Vue {
+    @Prop({ default: [] }) buttons!: { click: any, icon: string }[];
+}
+</script>
 
 <style lang="less" scoped>
 @import "./Config";

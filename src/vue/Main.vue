@@ -28,7 +28,14 @@
 			</div>
 
 			<div class="footer">
-				<Footer />
+				<Footer :buttons="[
+                    {
+                        icon: 'paint_brush',
+                        click: () => {
+                            prompt('This feature has not yet been implemented');
+                        }
+                    }
+                ]" />
 			</div>
 		</div>
 	</div>
@@ -44,6 +51,10 @@ export default class Main extends Vue {
 	public mounted() {
 		this.theme.loadTheme("Dark");
 	}
+
+    public prompt(question: string) {
+        alert(question);
+    }
 }
 </script>
 
