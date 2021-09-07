@@ -36,7 +36,7 @@ export default class NavBar extends Vue {
 		color: @accent;
 		font-family: @mainFont;
 		font-size: 13px;
-		margin-left: -5px;
+		margin-left: -2px;
 		text-decoration: none;
 		transition: 100ms;
 		padding: 5px;

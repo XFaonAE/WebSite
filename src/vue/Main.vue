@@ -8,6 +8,14 @@
 				href: '/',
 				label: 'Home'
 			},
+            {
+                href: '/projects',
+                label: 'Projects'
+            },
+            {
+                href: '/projects/app',
+                label: 'App *Coming Soon*'
+            },
 			{
 				href: '/about',
 				label: 'About'

@@ -4,6 +4,7 @@ import router from "./plugins/Router";
 import FluxUi from "@axeridev/flux-ui";
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
+import Banner from "./components/Banner.vue";
 
 const app = createApp(Main);
 
@@ -18,7 +19,8 @@ const registerComponents = (components: { [ index: string]: any }) => {
 
 registerComponents({
 	NavBar,
-	Footer
+	Footer,
+    Banner
 });
 
 app.mount("#app");
